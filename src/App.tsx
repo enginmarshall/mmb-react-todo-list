@@ -36,10 +36,11 @@ function App() {
   }, [fetchTodos]);
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       console.log("Refreshing data...")
       fetchTodos().then((data) => {
         setTodos(data);
+        clearInterval(interval);
       });
     }, defaultRefreshInterval);
   }, [todos, fetchTodos, defaultRefreshInterval]);
