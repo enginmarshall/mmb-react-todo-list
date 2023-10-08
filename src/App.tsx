@@ -15,7 +15,7 @@ function App() {
   const fetchTodos = useCallback(() => fetchTodosFromApi(apiUrl), [apiUrl]);
 
   const addTodo = (todo: Todo) => {
-    fetch(apiUrl + "/todos", {
+    fetch(`${apiUrl}/todos`, {
       method: "POST",
       body: JSON.stringify(todo),
       headers: {
